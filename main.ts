@@ -126,7 +126,7 @@ loops.everyInterval(2000, function () {
     }
 })
 basic.forever(function () {
-    if (input.lightLevel() <= 20 && function_free_fall) {
+    if (input.lightLevel() <= 20 && function_light_level) {
         basic.showLeds(`
             # # # # #
             # # # # #
