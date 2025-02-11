@@ -4,7 +4,7 @@ radio.onReceivedString(function (receivedString) {
         SuperBit.enMotors.M1,
         255,
         SuperBit.enMotors.M2,
-        -255
+        255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Blue))
         SuperBit.RGB_Program().show()
@@ -17,7 +17,7 @@ radio.onReceivedString(function (receivedString) {
         SuperBit.enMotors.M1,
         -255,
         SuperBit.enMotors.M2,
-        255
+        -255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Red))
         SuperBit.RGB_Program().show()
@@ -30,7 +30,7 @@ radio.onReceivedString(function (receivedString) {
         SuperBit.enMotors.M1,
         255,
         SuperBit.enMotors.M2,
-        255
+        -255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Orange))
         SuperBit.RGB_Program().show()
@@ -43,7 +43,7 @@ radio.onReceivedString(function (receivedString) {
         SuperBit.enMotors.M1,
         -255,
         SuperBit.enMotors.M2,
-        -255
+        255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Green))
         SuperBit.RGB_Program().show()
