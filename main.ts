@@ -1,3 +1,13 @@
+input.onButtonPressed(Button.A, function () {
+    function_light_level = false
+})
+input.onGesture(Gesture.FreeFall, function () {
+    if (function_free_fall) {
+        for (let index = 0; index < 10; index++) {
+            music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+        }
+    }
+})
 radio.onReceivedString(function (receivedString) {
     if (receivedString == "Forward") {
         SuperBit.MotorRunDual(
@@ -69,7 +79,15 @@ radio.onReceivedString(function (receivedString) {
     	
     }
 })
+input.onButtonPressed(Button.B, function () {
+    function_free_fall = false
+})
+let light_level = false
 let RGB_Program = ""
+let function_light_level = false
+let function_free_fall = false
+function_free_fall = true
+function_light_level = true
 radio.setGroup(11.14)
 let Random_Emoji = randint(1, 9)
 if (Random_Emoji == 1) {
@@ -100,10 +118,30 @@ basic.showIcon(IconNames.Skull)
 basic.pause(100)
 basic.clearScreen()
 loops.everyInterval(2000, function () {
-    if (RGB_Program != "colourless") {
+    if (RGB_Program != "colourless" && !(light_level)) {
         SuperBit.RGB_Program().clear()
         SuperBit.RGB_Program().show()
         RGB_Program = "colourless"
         basic.showIcon(IconNames.Skull)
+    }
+})
+basic.forever(function () {
+    if (input.lightLevel() <= 20 && function_free_fall) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+        SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.White))
+        SuperBit.RGB_Program().show()
+        RGB_Program = "white"
+        light_level = true
+    } else {
+        if (light_level) {
+            basic.clearScreen()
+            light_level = false
+        }
     }
 })
