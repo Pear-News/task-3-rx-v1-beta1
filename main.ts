@@ -12,9 +12,9 @@ radio.onReceivedString(function (receivedString) {
     if (receivedString == "Forward") {
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        -255,
+        255,
         SuperBit.enMotors.M2,
-        255
+        -255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Blue))
         SuperBit.RGB_Program().show()
@@ -25,9 +25,9 @@ radio.onReceivedString(function (receivedString) {
     } else if (receivedString == "Backward") {
         SuperBit.MotorRunDual(
         SuperBit.enMotors.M1,
-        255,
+        -255,
         SuperBit.enMotors.M2,
-        -255
+        255
         )
         SuperBit.RGB_Program().showColor(neopixel.colors(NeoPixelColors.Red))
         SuperBit.RGB_Program().show()
