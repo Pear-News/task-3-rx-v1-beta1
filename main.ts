@@ -1,5 +1,9 @@
 input.onButtonPressed(Button.A, function () {
-    function_light_level = false
+    if (function_light_level) {
+        function_light_level = false
+    } else {
+        function_light_level = true
+    }
 })
 input.onGesture(Gesture.FreeFall, function () {
     if (function_free_fall) {
@@ -80,7 +84,11 @@ radio.onReceivedString(function (receivedString) {
     }
 })
 input.onButtonPressed(Button.B, function () {
-    function_free_fall = false
+    if (function_free_fall) {
+        function_free_fall = false
+    } else {
+        function_free_fall = true
+    }
 })
 let light_level = false
 let RGB_Program = ""
